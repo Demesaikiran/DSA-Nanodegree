@@ -1,0 +1,136 @@
+===================================================================================
+ANALYSIS OF TASK - 0:
+
+TIME COMPLEXITY:
+---------------
+	As we are accessing the elements of the list with the index specified
+	
+	The time complexity of accessing the element in the list with index specified is O(1)
+	
+	>> Time complexity = O(1)
+
+SPACE COMPLEXITY:
+----------------
+	We are creating only the variables firstText and lastCall of type strings.
+	
+	>> Space Complexity = O(argmax(len(number)))
+
+===================================================================================
+
+ANALYSIS OF TASK - 1:
+
+TIME COMPLEXITY:
+---------------
+	We are adding the number in the set, So adding an element in the set takes O(n) complexity
+	
+	So, if we consider there are "n" records in each lists < calls and texts >
+	Iterating through these "n records takes O(n).
+	
+	Now we need to add the elements in the set. 
+	
+	For the first element, it takes 1 comparision, for the second element it takes 2 comparisions in the worst case.
+	and this goes on.
+	
+	Time complexity: Total number of comparisions = (1 + 2 + 3 + 4 +......+ n) As there are "n" records in the list.
+	
+	>>> Time Complexity = O(n^2)
+	>>> This can be reduced to O(n * log(n)) if we use lists and sort function. and we need to print the number if the preceeding
+	    number not same.
+	   
+	>>> This even can be solved to make only O(n) by considering the data structure, HashMap.
+	
+SPACE COMPLEXITY:
+----------------
+	We are creating two sets that can be maximum upto the number of records.
+	
+	>>> Space Complexity  = O(n)
+	
+===================================================================================
+
+ANALYSIS OF TASK - 2:
+
+TIME COMPLEXITY:
+---------------
+	We are storing the number and the duration of that particular number both ways,The number may be caller or receiver. 
+	If we consider the total number of records in the "calls" is "n", then it matters, how we are going to store the duration period.
+	
+	For each number to get updated it will take O(n) in the worst case.
+	
+	So for updating / Storing the duration of calls itself takes 
+	
+	>>> n * (2n) [ 2n is for we are checking the two numbers of the same record in the dictionary and updating ]
+	
+	Now we are taking maximum of all the entires. In the worst case, if all the numbers are unique then it takes O(n).
+	
+	So overall time complexity = n * (2n) + n + c = 2(n^2) + n + c
+	
+	>>> Time complexity: O(n^2)
+	
+SPACE COMPLEXITY:
+----------------
+	We are storing the numbers and the durations in terms of key, value pain in the dictionary.
+	
+	>>> Space complexity = O(n)
+	
+===================================================================================
+	
+ANALYSIS OF TASK - 3:
+
+TIME COMPLEXITY:
+---------------
+	In this particular task, we are storing the numbers "area_code". To maintain uniqueness I use set data structure in the task.
+	Coming to the time complexity, we are iterating through the entire records of "calls". If we consider there are "n" records in "calls".
+	
+	Then iterating through all these n records and comparing each number with the conditions given, for comparision it only takes O(1),
+	as the lenght of the number is constant and its max length is "11". So coming to the storage of code in the set takes O(n) in the 
+	worst case.
+	
+	Then we also doing some part of PART-B in the PART-A itself that is we are checking the fixed line to fixed line calls this takes 
+	constant time. But as we have "n" records it will come to O(n).
+	
+	>>> Overall time complexity = (1 + 2 + 3 + 4 + 5 + .... + n   +  n(for f2f checking )) = O(n^2)
+	
+	>>> Time complexity = O(n^2).
+	
+	>>> We can decrease it by adding each area code in a list that can be done in O(n) where "n" is number of records. i.e. We are 
+	just iterating through the entire "calls" list once and then we need to sort. This takes O(n * log(n)).
+	
+	>>> Time complexity for the above idea is: O(n * log(n))
+	
+SPACE COMPLEXITY:
+----------------
+	We are storing the areacodes in the set. As there are "n" records. At the max we will be having "n" area_code strings.
+	
+	>>> Space complexity: O(n)
+	
+===================================================================================
+
+ANALYSIS OF TASK - 4:
+
+TIME COMPLEXITY:
+---------------
+	Let us say the total number of records in each "calls" and "texts" are "n".
+	
+	Now if we consider the implementation part. We are going through each reocord of the "calls" and "texts". As we already discussed
+	the similar kind of implementation of storing the number in the set takes O(n).
+	
+	So, for the calls loop, it takes O(n^2).
+	
+	Similarly it takes O(n^2) to the texts too. as we need to check with the Non-Tele-Marketers created as a set in the task.
+	
+	Then we are checking the condition that Telemakers are those who only calls, but not gets calls or texts to someone either not getting
+	texts.
+	
+	If the caller set has a number that is also present in the Non_Tele_Marketers set, then we are skipping it, If not we are adding 
+	it to the TeleMarketers list and it takes O(1). = O(n)
+	
+	>>> Overall complexity = O(n^2 + n^2 + n + c)
+	
+	>>> Time complexity = O(n^2)
+	
+SPACE COMPLEXITY:
+----------------
+	We are storing the numbers in the sets and the number of records are "2n".
+	
+	>>> Space Comlexity = O(n).
+
