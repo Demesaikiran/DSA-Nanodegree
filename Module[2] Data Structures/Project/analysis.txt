@@ -1,0 +1,177 @@
+======================================================================================================================================================================
+ANALYSIS OF TASK - 1:
+
+DATA STRUCTURE SELECTION:
+------------------------
+    Accessing data need to be O(1) so there is a chance of using hashtable, Hence I have used python dictionary. 
+    Dictionary <Page frame> points directly to the node associated to each value.
+    Used doubly linked list to implement the dequeue structure, which keeps track of first and last elements.
+    LRU Cache in this contains head and tail of the dequeue.
+
+TIME COMPLEXITY:
+---------------
+    As we are using the dicitionary structure which takes constant time to do.
+	
+	>> Time complexity = O(1)
+
+SPACE COMPLEXITY:
+----------------
+    Node values in the set function takes linear space i.e. O(n)
+    
+	>> Space Complexity = O(len(data))
+
+======================================================================================================================================================================
+ANALYSIS OF TASK - 2:
+
+DATA STRUCTURE SELECTION:
+------------------------
+
+    Here the file structure we are dealing with, is same as TREE. In the code I used DFS to traverse to find the 
+    files which contain the right suffix.
+    
+
+TIME COMPLEXITY:
+---------------
+    Traversing through the 'n' nodes takes linear time i.e. O(n) and after visiting each node we need to compare 
+    the suffix length
+    
+    >>> Time Complexity = O((Number of nodes) * (Length of suffix))
+    
+SPACE COMPLEXITY:
+----------------
+    Consider the length of longest path  = P
+    Consider sibing nodes along the path = S
+    Number of file nodes                 = N
+    Longest file path                    = L
+    
+    >>> Space complexity = O(P * S + N * L)
+    
+
+======================================================================================================================================================================
+ANALYSIS OF TASK - 3:
+
+DATA STRUCTURE SELECTION:
+------------------------
+
+    As we see in the encoding part of data I have stored the frequence of the character in a dicitionary
+    Then brought the taste of heapify in the tree.
+    
+TIME COMPLEXITY:
+---------------
+    
+    Time complexity I want to discuss in two parts and i.e. Encoding and Decoding
+    
+    Encoding:
+    --------
+        Traversing through the entire data and finding the frequency of each character takes O(n).
+        As we have used the dictionary to store these frequencies, in the worst case to find the two nodes
+        with the least weight and then merging those two nodes to make one node and then adding that one node to 
+        the dictionary takes O(n).
+        
+        This process getting repeated for remaining n-1 nodes. Hence it takes O(1 + 2 + 3 + 4 + ... + n) = O(n^2)
+        
+        >>> Time complexity for encoding: O(n^2)
+        
+        >>> This can be reduced to O(nlogn) if we implement the same algorithm using pure heap format. As finding elements
+        Deleting or adding takes O(logn). This makes O(n * logn)
+        
+     Decoding:
+     --------
+        First part: Generating reverse code takes O(n * logn) Here n represents the number of leaf nodes.
+        
+        If 'n' is length of the encoded data for building the message. We need to traverse through all the characters in the 
+        encoded data which takes O(n^2).
+        
+        >>> Time complexity for decoding: O(n^2)
+        
+        
+        
+    >>> Time complexity: O(n^2)
+    
+SPACE COMPLEXITY:
+----------------
+
+        >>> Space complexity for encoding takes O(n * logn)
+        >>> Space complexity for decoding takes O(n) which is the length of the message.
+        
+
+======================================================================================================================================================================
+ANALYSIS OF TASK - 4:
+
+DATA STRUCTURE SELECTION:
+------------------------
+
+    Directory structure is similar to the tree structure. I have used DFS to traverse the directory for the user.
+    Searching the user recursively through all subgroups if the user in the userlist in each group.
+    
+
+TIME COMPLEXITY:
+---------------
+    
+     As we are seeing the 'n' nodes in the tree it takes O(n) time complexity and for each node it has list of users.
+     Searching the user in that each list takes order of length of the list.
+     
+     Time complexity: O((Number of Groups) * argmax(Length of list of nodes))
+     
+SPACE COMPLEXITY:
+----------------
+
+     If the longest path in the traversal is 'P' and there are 'S' number of sibling nodes
+     
+     >>> Space complexity = O(P * S)
+     
+======================================================================================================================================================================
+ANALYSIS OF TASK - 5:
+
+
+DATA STRUCTURE SELECION:
+-----------------------
+
+    In the coding part of block chain I have implemented "Linkedlist" such that each node has the block and pointer to the next block
+    
+    
+TIME COMLEXITY:
+--------------
+    
+    New data insertion takes O(number of nodes)
+    
+    >>> Time complexity: O(number of nodes)
+    
+SPACE COMPLEXITY:
+----------------
+    
+    Takes order of length of linked list list i.e. linear space.
+    
+    >>> Space complexity = O(number of nodes in linked list) 
+
+
+======================================================================================================================================================================
+ANALYSIS OF TASK - 6:
+--------------------
+
+DATA STRUCTURE SELECTION:
+------------------------
+
+    In the coding part of union and intersection I have used 'SET' data structure.
+    
+TIME COMPLEXITY:
+---------------
+    
+    UNION:
+    -----
+        In union part I have used two sets for each linkedlist. for each list it takes O(len(linkedlist1) + len(linkedlist2))
+        
+    INTERSECTION:
+    ------------
+        In intersection part it takes O(n) as we have used inbuild function of set-intersection.
+        
+    >>> Time complexity: O(n)
+    
+SPACE COMPLEXITY:
+----------------
+
+    We have used the set datastructure to store the element values. Hence it takes O(n)
+    
+    >>> Space complexity: O(len(linkedlist1) + len(linkedlist2))
+    
+======================================================================================================================================================================
