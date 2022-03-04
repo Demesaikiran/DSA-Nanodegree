@@ -31,11 +31,11 @@ print(find_files('.h','.'))
 # Expected output: Prints all filenames with the extension having .h
 
 """ TEST CASE - 2"""
-print(find_files('', ''))
+print(find_files('', '.'))
 #Expected output: Prints all the files in the path provided
 
 """ TEST CASE - 3"""
-print(find_files('.h', '.'))
+print(find_files('.h'))
 # Expected output: As we have not specified the path the default path will be the current directory.
 
 print(find_files('12345','.'))

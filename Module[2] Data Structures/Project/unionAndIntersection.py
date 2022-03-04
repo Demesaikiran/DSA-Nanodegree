@@ -149,3 +149,18 @@ print(union(linked_list_5, linked_list_6))
 # Prints nothing
 print(intersection(linked_list_5, linked_list_6))
 # Prints nothing
+
+
+#Test case 4
+
+linked_list_7 = LinkedList()
+linked_list_8 = LinkedList()
+
+element_1 = []
+element_2 = [1,2,3,4,5]
+
+for i in element_2:
+    linked_list_8.append(i)
+
+print(union(linked_list_7, linked_list_8))
+print(intersection(linked_list_7, linked_list_8))

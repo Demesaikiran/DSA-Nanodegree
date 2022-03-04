@@ -86,3 +86,10 @@ test3.append()
 test3.append("Info-1")
 print(test3)
 #outputs only one block
+
+""" TEST - 4 """
+test4 = BlockChain()
+test4.append("info-1")
+print(test4.head.block.timestamp)
+test4.append("info-2")
+print(test4.head.block.timestamp)

@@ -32,7 +32,7 @@ def is_user_in_group(user, group):
         return True
     
     for value in group.get_groups():
-        if is_user_in_group(value):
+        if is_user_in_group(user, value):
             return True
         
     return False
@@ -55,4 +55,7 @@ print(is_user_in_group(sub_child_user, parent))
 print(is_user_in_group(sub_child_user, child))
 #True
 print(is_user_in_group(parent_user, child))
+#False
+
+print(is_user_in_group(sub_child, child))
 #False
