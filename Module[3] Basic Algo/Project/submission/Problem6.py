@@ -29,4 +29,16 @@ import random
 l = [i for i in range(0, 10)]  # a list containing 0 - 9
 random.shuffle(l)
 
-print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
+print ("Pass" if ((0, 9) == get_min_max(l)) else "Fail")    #Prints Pass
+
+l = [i for i in range(0, 100)] # a list containing 0 - 100
+random.shuffle(l)
+print ("Pass" if ((0, 99) == get_min_max(l)) else "Fail")   #Prints Pass
+
+l = [i for i in range(0, 1)] # a list containing 0, 1
+random.shuffle(l)
+print ("Pass" if ((0, 0) == get_min_max(l)) else "Fail")    #Prints Pass
+
+l = [i for i in range(0, 100000)] # a list containing 0, 1
+random.shuffle(l)
+print ("Pass" if ((0, 99999) == get_min_max(l)) else "Fail")    #Prints Pass

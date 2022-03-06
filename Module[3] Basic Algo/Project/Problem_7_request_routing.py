@@ -104,3 +104,12 @@ print(router.lookup("/home/about/me"))
 # should print 'about me'
 print(router.lookup("/home/about/"))
 # should print 'not found handler'
+
+#Test-case-3
+router = Router("root handler", "not found handler")
+router.add_handler("/home/about/me", "about me")
+print(router.lookup("/home/about/"))
+print(router.lookup("/home/about"))
+print(router.lookup("/home"))
+print(router.lookup("/home/about/me"))
+print(router.lookup("/"))
