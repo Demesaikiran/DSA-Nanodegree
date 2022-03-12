@@ -1,27 +1,41 @@
-import heapq
-from math import pow, sqrt
-from collections import namedtuple
+import math
+from queue import PriorityQueue
 
-cost = namedtuple('Cost', ['total', 'journey', 'to_goal'])
-path = namedtuple('Path', ['cost', 'intersections', 'previous', 'frontier'])
 
-def euclidean_distance(origin_point: [float, float], destinaiton_point: [float, float]) -> float:
-    """
-    Given two poitns origin and destination returns their euclidean distance
-    :param origin_point: It's the origin point in the 2D cartesian space
-    :param destination_point: IT's the destination point in the 2D cartesian space
-    :return: It returns the Euclidean distance between the two points
-    """
+def shortest_path(graph, start, goal):
     
-    return sqrt(pow((oringin_point[0] - destination_point[0]), 2) + pow((origin_point[1] - destination_point[1]), 2))
-
-
-def estimated_distance(path_frontier_point: [float, float], goal_point: [float, float]) -> float:
+    pathQueue = PriorityQueue()
+    pathQueue.put(start, 0)
     
+    previous = {start: None}
+    score = {start: 0}
+
+    while not pathQueue.empty():
+        current = pathQueue.get()
+
+        if current == goal:
+            constructPath(previous, start, goal)
+
+        for neighbor in graph.roads[current]:
+            updateScore = score[current] + heuristicMeasure(graph.intersections[current], graph.intersections[neighbor])
+            
+            if neighbor not in score or updateScore < score[neighbor]:
+                score[neighbor] = updateScore
+                totalScore = updateScore + heuristicMeasure(graph.intersections[current], graph.intersections[neighbor])
+                pathQueue.put(neighbor, totalScore)
+                previous[neighbor] = current
+
+    return constructPath(previous, start, goal)
 
 
+def heuristicMeasure(start, goal):
+    return math.sqrt(((start[0] - goal[0]) ** 2) + ((start[1] - goal[1]) ** 2))
 
-
-def shortest_path(M,start,goal):
-    print("shortest path called")
-    return
+def constructPath(previous, start, goal):
+    current = goal
+    path = [current]
+    while current != start:
+        current = previous[current]
+        path.append(current)
+    path.reverse()
+    return path
